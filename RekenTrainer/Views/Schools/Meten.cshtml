@@ -1,0 +1,76 @@
+﻿@model IEnumerable<RekenTrainer.Models.School>
+
+@{
+    ViewData["Title"] = "Meten";
+}
+
+<h1>Online Rekenen Oefenen</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 pt-4 bg-light rounded">
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Optellen">Optellen</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Aftrekken">Aftrekken</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Geld">Geld</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Meten">Meten</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Delen">Delen</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Vermenigvuldigen">Vermenigvuldigen</a>
+            <a class="m-4 card-link" asp-controller="Schools" asp-action="Percentage">Percentage</a>
+        </div>
+        <div class="col-md-10">
+            @if (Model.Count() > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="border border-primary rounded m-4 p-2">
+                        <div class="row">
+                            <h5 class="text-black ml-3">@item.Qid ) @item.Question</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 ml-5">
+                                <input type="radio" id="optie1" name="@item.Option1" class="rb" value="@item.Option1" />
+                                @item.Option1
+                            </div>
+                            <div class="col-2 ml-5">
+                                <input type="radio" id="optie1" name="@item.Option2" class="rb" value="@item.Option2" />
+                                @item.Option2
+                            </div>
+                            <div class="col-2 ml-5">
+                                <input type="radio" id="optie1" name="@item.Option3" class="rb" value="@item.Option3" />
+                                @item.Option3
+                            </div>
+                            <div class="col-2 ml-5">
+                                <input type="radio" id="optie1" name="@item.Option4" class="rb" value="@item.Option4" />
+                                @item.Option4
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="ml-3">
+                                <label id="Corrigeert" name="@item.Correctans" class="rb" style="display: none; color: forestgreen;"><b>Het juiste antwoord is '@item.Correctans'</b></label>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <p>Oeps er is iets mis gegaan</p>
+            }
+            <button type="button" id="btn" class="btn btn-success">Verzenden</button>
+            <a asp-controller="Schools" asp-action="Optellen" class="btn btn-danger">Reset</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            $(".rb").show();
+            $(".rb").attr("disabled", true);
+        });
+    });
+
+
+</script>

@@ -1,0 +1,59 @@
+﻿@model RekenTrainer.Models.School
+
+@{
+    ViewData["Title"] = "Bekijk";
+}
+
+<h2>Bekijken</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Option1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Option1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Option2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Option2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Option3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Option3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Option4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Option4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Correctans)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Correctans)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Qid">Bewerk</a> |
+    <a asp-action="Index">Terug naar de vragen</a>
+</div>
